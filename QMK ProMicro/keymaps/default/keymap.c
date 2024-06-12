@@ -1,5 +1,5 @@
 /*
-Copyright 2024 Joshua A. Villasol
+Copyright 2021 Peter C. Park <peter@stenokeyboards.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,51 +18,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
     [0] = LAYOUT(
-        LCTL(KC_S),     LCA(KC_S),  LCTL(LSFT(KC_C)),   TO(1),
-        KC_MPLY,        KC_MRWD,    KC_MFFD,            LALT(KC_RBRC),
-        KC_Q,           KC_U,       KC_N,               LALT(KC_LBRC),
-        KC_M,           KC_J,       KC_G,               KC_I,
-        KC_P,           KC_E,       KC_B,               KC_R,
-        LCTL(KC_Z),     KC_SPC
+        STN_S1, STN_TL, STN_PL, STN_HL, STN_ST1,    STN_ST3, STN_FR, STN_PR, STN_LR, STN_TR, STN_DR,
+        STN_S2, STN_KL, STN_WL, STN_RL, STN_ST2,    STN_ST4, STN_RR, STN_BR, STN_GR, STN_SR, STN_ZR,
+                        STN_N1, STN_A,  STN_O,      STN_E,   STN_U,  STN_N2  
     ),
-
-    [1] = LAYOUT(
-        QK_RBT,     QK_BOOT,    KC_NO,  TO(1),
-        KC_NO,      KC_NO,      KC_NO,  KC_NO,
-        KC_NO,      KC_NO,      KC_NO,  KC_NO,
-        KC_NO,      KC_NO,      KC_NO,  KC_NO,
-        KC_NO,      KC_NO,      KC_NO,  KC_NO,
-        KC_NO,      KC_NO
-    )
 };
-
-bool encoder_update_user(uint8_t index, bool clockwise) //Rotary encoder turning
-{    
-    switch(index)
-    {
-        case 0:
-            if (clockwise) { tap_code(KC_W); } else { tap_code(KC_S); }
-            break;
-        
-        case 1:
-            if (clockwise) { tap_code(KC_A); } else { tap_code(KC_D); }
-            break;
-    }
-    return false;
-}
-
-bool dip_switch_update_user(uint8_t index, bool active) //Rotary encoder switch
-{
-    switch(index)
-    {
-        case 0:
-            if(active) { tap_code(KC_X); }
-            break;
-
-        case 1:
-            if(active) { tap_code(KC_C); }
-            break;
-    }
-   return true; 
-}

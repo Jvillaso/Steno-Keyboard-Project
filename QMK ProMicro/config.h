@@ -14,8 +14,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#define ENCODERS_PAD_A { E6, B5 }
-#define ENCODERS_PAD_B { D7, B4 }
-#define ENCODER_RESOLUTION 4
 
-#define DIP_SWITCH_PINS { B2, B6 }
+/*Nkey roll over*/
+#define FORCE_NKRO
